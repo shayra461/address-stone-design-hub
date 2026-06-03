@@ -219,8 +219,11 @@ function StonePreview({ number, street, font, border, profile }: PreviewProps) {
         <div
           className={`${
             font === "serif" ? "font-serif" : "font-sans font-semibold"
-          } text-[14vw] leading-none text-stone-900/85 drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] sm:text-7xl md:text-8xl`}
-          style={{ textShadow: "0 1px 0 rgba(255,255,255,0.6), 0 -1px 2px rgba(0,0,0,0.25)" }}
+          } text-[14vw] leading-none sm:text-7xl md:text-8xl`}
+          style={{
+            color: "rgba(28,22,16,0.88)",
+            textShadow: "0 1px 0 rgba(255,255,255,0.55), 0 -1px 2px rgba(0,0,0,0.25)",
+          }}
         >
           {number || "0000"}
         </div>
@@ -228,7 +231,8 @@ function StonePreview({ number, street, font, border, profile }: PreviewProps) {
           <div
             className={`${
               font === "serif" ? "font-serif" : "font-sans"
-            } mt-2 text-xs uppercase tracking-[0.3em] text-stone-900/70 sm:text-sm`}
+            } mt-2 text-xs uppercase tracking-[0.3em] sm:text-sm`}
+            style={{ color: "rgba(28,22,16,0.7)" }}
           >
             {street}
           </div>
