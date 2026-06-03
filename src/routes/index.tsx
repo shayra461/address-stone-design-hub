@@ -1168,7 +1168,7 @@ function FinalCTA() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-medium text-stone-50 backdrop-blur transition hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-medium text-foreground backdrop-blur transition hover:bg-white/10"
           >
             Contact Us
           </a>
