@@ -57,8 +57,12 @@ export default function StonePreview({
         <div
           className={`${
             font === "serif" ? "font-serif" : "font-sans font-semibold"
-          } text-[14vw] leading-none sm:text-7xl md:text-8xl`}
-          style={{ color: textColor, textShadow }}
+          } leading-none`}
+          style={{
+            color: textColor,
+            textShadow,
+            fontSize: `clamp(2.5rem, ${14 * numberScale}vw, ${8 * numberScale}rem)`,
+          }}
         >
           {number || "0000"}
         </div>
@@ -66,8 +70,11 @@ export default function StonePreview({
           <div
             className={`${
               font === "serif" ? "font-serif" : "font-sans"
-            } mt-2 text-xs uppercase tracking-[0.3em] sm:text-sm`}
-            style={{ color: subColor }}
+            } mt-2 uppercase tracking-[0.3em]`}
+            style={{
+              color: subColor,
+              fontSize: `clamp(0.625rem, ${1.5 * streetScale}vw, ${1.25 * streetScale}rem)`,
+            }}
           >
             {street}
           </div>
