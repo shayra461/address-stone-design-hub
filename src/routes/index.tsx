@@ -12,7 +12,6 @@ import {
   Image as ImageIcon,
   Instagram,
   Layers,
-  Mail,
   Menu,
   Move,
   Package,
