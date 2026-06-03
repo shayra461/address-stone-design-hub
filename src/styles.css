@@ -63,49 +63,54 @@
 :root {
   --radius: 0.75rem;
 
-  /* Deep charcoal stone background. The body uses the textured image on top. */
-  --background: oklch(0.18 0.005 60);
-  --foreground: oklch(0.96 0.008 80);
+  /* Deep cinematic graphite background */
+  --background: oklch(0.16 0.003 250);
+  --foreground: oklch(0.97 0.003 250);
 
-  --card: oklch(0.22 0.006 60);
-  --card-foreground: oklch(0.96 0.008 80);
-  --popover: oklch(0.22 0.006 60);
-  --popover-foreground: oklch(0.96 0.008 80);
+  --card: oklch(0.21 0.004 250);
+  --card-foreground: oklch(0.97 0.003 250);
+  --popover: oklch(0.21 0.004 250);
+  --popover-foreground: oklch(0.97 0.003 250);
 
-  --primary: oklch(0.96 0.008 80);              /* light surface for primary buttons */
-  --primary-foreground: oklch(0.18 0.006 60);
+  --primary: oklch(0.97 0.003 250);
+  --primary-foreground: oklch(0.16 0.004 250);
 
-  --secondary: oklch(0.28 0.006 60);
-  --secondary-foreground: oklch(0.96 0.008 80);
+  --secondary: oklch(0.27 0.004 250);
+  --secondary-foreground: oklch(0.97 0.003 250);
 
-  --muted: oklch(0.26 0.006 60);
-  --muted-foreground: oklch(0.72 0.012 75);
+  --muted: oklch(0.25 0.004 250);
+  --muted-foreground: oklch(0.78 0.006 250);
 
-  --accent: oklch(0.72 0.09 65);                /* warm bronze, brighter for dark bg */
-  --accent-foreground: oklch(0.16 0.006 60);
+  /* Silver accent — matches the logo's polished chrome tone */
+  --accent: oklch(0.86 0.005 250);
+  --accent-foreground: oklch(0.14 0.004 250);
 
   --destructive: oklch(0.62 0.2 28);
-  --destructive-foreground: oklch(0.98 0.005 80);
+  --destructive-foreground: oklch(0.98 0.005 250);
 
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 11%);
   --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.72 0.09 65);
+  --ring: oklch(0.86 0.005 250);
 
-  /* Remapped so existing class names render correctly on dark surfaces. */
-  --stone-50:  oklch(0.22 0.006 60);            /* elevated dark surface */
-  --stone-100: oklch(0.24 0.006 60);
-  --stone-200: oklch(1 0 0 / 12%);              /* subtle borders */
+  --stone-50:  oklch(0.21 0.004 250);
+  --stone-100: oklch(0.23 0.004 250);
+  --stone-200: oklch(1 0 0 / 12%);
   --stone-300: oklch(1 0 0 / 22%);
-  --stone-700: oklch(0.82 0.012 75);            /* secondary light text */
-  --stone-900: oklch(0.97 0.008 80);            /* primary light text */
-  --bronze: oklch(0.72 0.09 65);
-  --bronze-soft: oklch(0.82 0.07 70);
+  --stone-700: oklch(0.85 0.004 250);
+  --stone-900: oklch(0.97 0.003 250);
 
-  --chart-1: var(--bronze);
+  /* Silver / platinum palette (replaces bronze) */
+  --bronze: oklch(0.86 0.005 250);
+  --bronze-soft: oklch(0.92 0.004 250);
+  --silver: oklch(0.86 0.005 250);
+  --silver-bright: oklch(0.96 0.003 250);
+  --silver-dim: oklch(0.66 0.005 250);
+
+  --chart-1: var(--silver);
   --chart-2: var(--stone-700);
   --chart-3: var(--stone-300);
-  --chart-4: oklch(0.65 0.06 50);
-  --chart-5: oklch(0.78 0.05 70);
+  --chart-4: oklch(0.7 0.005 250);
+  --chart-5: oklch(0.82 0.004 250);
 
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
@@ -123,27 +128,62 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #0c0c0e;
+    background-color: #08090b;
+    /* Larger root size so every rem-based class scales up site-wide */
+    font-size: 17.5px;
+  }
+  @media (min-width: 1024px) {
+    html { font-size: 18px; }
+  }
+  @media (min-width: 1536px) {
+    html { font-size: 19px; }
   }
   body {
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-color: #0c0c0e;
+    background-color: #08090b;
     background-image:
-      radial-gradient(ellipse at top, rgb(40 38 40 / 0.55), transparent 60%),
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgb(180 188 200 / 0.10), transparent 65%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgb(120 130 145 / 0.08), transparent 70%),
       url("/__l5e/assets-v1/b44fd82e-ad38-4ee6-97fe-99c6b0844697/dark-stone-bg.jpg");
-    background-size: auto, 1400px auto;
-    background-position: center top, center;
-    background-repeat: no-repeat, repeat;
-    background-attachment: fixed, fixed;
+    background-size: auto, auto, 1500px auto;
+    background-position: center top, center bottom, center;
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-attachment: fixed, fixed, fixed;
+    background-blend-mode: screen, screen, normal;
+  }
+  /* Cinematic film grain + vignette */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background:
+      radial-gradient(ellipse at center, transparent 40%, rgb(0 0 0 / 0.55) 100%);
+    mix-blend-mode: multiply;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+    background-size: 160px 160px;
+    mix-blend-mode: overlay;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     color: var(--color-foreground);
   }
+  p { font-size: 1.0625rem; line-height: 1.7; }
 }
 
 @utility font-serif {
@@ -162,14 +202,14 @@
 
 @utility shadow-luxe {
   box-shadow:
-    0 1px 2px rgb(0 0 0 / 0.4),
-    0 12px 32px -16px rgb(0 0 0 / 0.55);
+    0 1px 2px rgb(0 0 0 / 0.5),
+    0 14px 36px -16px rgb(0 0 0 / 0.65);
 }
 
 @utility shadow-luxe-lg {
   box-shadow:
-    0 2px 4px rgb(0 0 0 / 0.5),
-    0 30px 60px -30px rgb(0 0 0 / 0.85);
+    0 2px 4px rgb(0 0 0 / 0.55),
+    0 40px 80px -30px rgb(0 0 0 / 0.9);
 }
 
 @utility lift {
@@ -180,15 +220,43 @@
   transform: translateY(-6px);
   box-shadow:
     0 4px 8px rgb(0 0 0 / 0.5),
-    0 40px 80px -30px rgb(0 0 0 / 0.9);
+    0 50px 90px -30px rgb(0 0 0 / 0.95);
 }
 
 @utility gradient-text-bronze {
-  background: linear-gradient(135deg, var(--color-bronze) 0%, var(--color-bronze-soft) 100%);
+  background: linear-gradient(
+    100deg,
+    #d8dde4 0%,
+    #ffffff 35%,
+    #a8afb9 60%,
+    #ffffff 85%,
+    #cdd2d9 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: shimmer 8s ease-in-out infinite;
 }
+
+@utility silver-shine {
+  background: linear-gradient(
+    100deg,
+    #c8cdd4 0%,
+    #ffffff 40%,
+    #9ea4ad 55%,
+    #ffffff 70%,
+    #b8bdc5 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 10s linear infinite;
+}
+
+/* Make sure global elements sit above the cinematic overlays */
+header, main, footer { position: relative; z-index: 3; }
 
 @keyframes float-soft {
   0%, 100% { transform: translateY(0); }
@@ -203,18 +271,24 @@
   to { opacity: 1; }
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
 }
 
 .animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-fade-in { animation: fade-in 1.2s ease-out both; }
 .animate-marquee { animation: marquee 40s linear infinite; }
+.animate-glow { animation: glow-pulse 5s ease-in-out infinite; }
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
