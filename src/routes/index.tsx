@@ -275,6 +275,8 @@ function Hero() {
                 profile="face"
                 color="limestone"
                 size="medium"
+                numberScale={1}
+                streetScale={1}
               />
             </div>
 
@@ -562,7 +564,7 @@ function Collections() {
 
 function Configurator() {
   const { design, update } = useDesign();
-  const { number, street, font, border, profile, color, size } = design;
+  const { number, street, font, border, profile, color, size, numberScale, streetScale } = design;
 
   const Tile = ({
     active,
@@ -634,6 +636,46 @@ function Configurator() {
                   value={street}
                   onChange={(e) => update("street", e.target.value.toUpperCase())}
                   className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    Number Size
+                  </label>
+                  <span className="text-[10px] tabular-nums text-muted-foreground">
+                    {Math.round(numberScale * 100)}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0.6}
+                  max={1.6}
+                  step={0.05}
+                  value={numberScale}
+                  onChange={(e) => update("numberScale", parseFloat(e.target.value))}
+                  className="mt-2 w-full accent-[var(--bronze,theme(colors.accent.DEFAULT))]"
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    Street Size
+                  </label>
+                  <span className="text-[10px] tabular-nums text-muted-foreground">
+                    {Math.round(streetScale * 100)}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0.6}
+                  max={1.8}
+                  step={0.05}
+                  value={streetScale}
+                  onChange={(e) => update("streetScale", parseFloat(e.target.value))}
+                  className="mt-2 w-full accent-[var(--bronze,theme(colors.accent.DEFAULT))]"
                 />
               </div>
 
