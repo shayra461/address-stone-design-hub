@@ -525,12 +525,8 @@ function Collections() {
 /* -------------------------------------------------------------------------- */
 
 function Configurator() {
-  const [number, setNumber] = useState("4521");
-  const [street, setStreet] = useState("MAPLE RIDGE DRIVE");
-  const [font, setFont] = useState<"serif" | "sans">("serif");
-  const [border, setBorder] = useState<PreviewProps["border"]>("classic");
-  const [profile, setProfile] = useState<PreviewProps["profile"]>("face");
-  const [size, setSize] = useState("medium");
+  const { design, update } = useDesign();
+  const { number, street, font, border, profile, color, size } = design;
 
   const Tile = ({
     active,
@@ -565,7 +561,7 @@ function Configurator() {
               <span className="italic gradient-text-bronze">in real time.</span>
             </>
           }
-          subtitle="Adjust every detail—number, street, font, border, profile, and size—and watch your stone update instantly."
+          subtitle="Adjust every detail—number, street, font, border, profile, color, and size—and watch your stone update instantly. Your design carries straight into the home visualizer."
         />
 
         <div className="mx-auto mt-16 max-w-6xl overflow-hidden rounded-[2rem] border border-stone-200 bg-card shadow-luxe-lg">
@@ -590,7 +586,7 @@ function Configurator() {
                 </label>
                 <input
                   value={number}
-                  onChange={(e) => setNumber(e.target.value)}
+                  onChange={(e) => update("number", e.target.value)}
                   className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 font-serif text-2xl text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
@@ -600,7 +596,7 @@ function Configurator() {
                 </label>
                 <input
                   value={street}
-                  onChange={(e) => setStreet(e.target.value.toUpperCase())}
+                  onChange={(e) => update("street", e.target.value.toUpperCase())}
                   className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
@@ -610,10 +606,10 @@ function Configurator() {
                   Font
                 </label>
                 <div className="mt-2 grid grid-cols-2 gap-2">
-                  <Tile active={font === "serif"} onClick={() => setFont("serif")}>
+                  <Tile active={font === "serif"} onClick={() => update("font", "serif")}>
                     <span className="font-serif text-base">Garamond</span>
                   </Tile>
-                  <Tile active={font === "sans"} onClick={() => setFont("sans")}>
+                  <Tile active={font === "sans"} onClick={() => update("font", "sans")}>
                     <span className="font-sans font-semibold">Helvetica</span>
                   </Tile>
                 </div>
@@ -625,7 +621,7 @@ function Configurator() {
                 </label>
                 <div className="mt-2 grid grid-cols-2 gap-2">
                   {(["classic", "beveled", "double", "none"] as const).map((b) => (
-                    <Tile key={b} active={border === b} onClick={() => setBorder(b)}>
+                    <Tile key={b} active={border === b} onClick={() => update("border", b)}>
                       <span className="capitalize">{b}</span>
                     </Tile>
                   ))}
@@ -646,7 +642,7 @@ function Configurator() {
                     <Tile
                       key={key}
                       active={profile === key}
-                      onClick={() => setProfile(key)}
+                      onClick={() => update("profile", key)}
                     >
                       {label}
                     </Tile>
@@ -656,20 +652,47 @@ function Configurator() {
 
               <div>
                 <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  Size
+                  Stone Color
+                </label>
+                <div className="mt-2 grid grid-cols-4 gap-2">
+                  {(Object.keys(COLOR_META) as ColorKey[]).map((c) => (
+                    <button
+                      key={c}
+                      onClick={() => update("color", c)}
+                      title={COLOR_META[c].label}
+                      className={`group relative h-12 overflow-hidden rounded-xl border transition-all ${
+                        color === c
+                          ? "border-accent ring-2 ring-accent/40"
+                          : "border-stone-200 hover:border-stone-300"
+                      }`}
+                      style={{ background: COLOR_META[c].swatch }}
+                    >
+                      <span className="sr-only">{COLOR_META[c].label}</span>
+                    </button>
+                  ))}
+                </div>
+                <div className="mt-2 text-[11px] text-muted-foreground">
+                  {COLOR_META[color].label}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                  Dimensions
                 </label>
                 <div className="mt-2 grid grid-cols-3 gap-2">
-                  {[
-                    ["small", '14"'],
-                    ["medium", '18"'],
-                    ["large", '24"'],
-                  ].map(([key, label]) => (
+                  {(Object.keys(SIZE_META) as SizeKey[]).map((key) => (
                     <Tile
                       key={key}
                       active={size === key}
-                      onClick={() => setSize(key as string)}
+                      onClick={() => update("size", key)}
                     >
-                      {label}
+                      <div className="flex flex-col items-center">
+                        <span>{SIZE_META[key].label}</span>
+                        <span className="mt-0.5 text-[10px] text-muted-foreground">
+                          {SIZE_META[key].dims}
+                        </span>
+                      </div>
                     </Tile>
                   ))}
                 </div>
@@ -687,13 +710,7 @@ function Configurator() {
                 </span>
               </div>
               <div className="my-auto py-10">
-                <StonePreview
-                  number={number}
-                  street={street}
-                  font={font}
-                  border={border}
-                  profile={profile}
-                />
+                <StonePreview {...design} />
               </div>
 
               <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-stone-200 pt-5">
@@ -707,7 +724,7 @@ function Configurator() {
                   href="#visualize"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-luxe transition hover:bg-stone-700"
                 >
-                  Launch Full Configurator <ArrowRight className="h-4 w-4" />
+                  Preview On My Home <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -717,6 +734,7 @@ function Configurator() {
     </section>
   );
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                                Visualization                               */
