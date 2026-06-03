@@ -275,6 +275,8 @@ function Hero() {
                 profile="face"
                 color="limestone"
                 size="medium"
+                numberScale={1}
+                streetScale={1}
               />
             </div>
 
