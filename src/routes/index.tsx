@@ -869,12 +869,12 @@ function Visualization() {
                   </div>
                 </div>
               </div>
-              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-stone-900/70 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-stone-100 backdrop-blur">
                 <div className="flex items-center gap-2">
                   <Move className="h-3.5 w-3.5" /> Reposition · Resize · Rotate
                 </div>
               </div>
-              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-stone-900/70 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-stone-100 backdrop-blur">
                 Scale 78% · Tilt −2°
               </div>
             </div>
