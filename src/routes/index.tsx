@@ -779,7 +779,7 @@ function Configurator() {
             </div>
 
             {/* Right preview */}
-            <div className="relative flex flex-col bg-gradient-to-br from-stone-100/80 to-stone-50 p-8 lg:p-12">
+            <div className="relative flex flex-col bg-gradient-to-br from-stone-100/80 to-stone-50 p-5 lg:p-6">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Live Stone Preview
@@ -788,25 +788,26 @@ function Configurator() {
                   Render quality · 4K
                 </span>
               </div>
-              <div className="my-auto py-10">
+              <div className="flex flex-1 items-center justify-center py-4">
                 <StonePreview {...design} />
               </div>
 
-              <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-stone-200 pt-5">
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-4 border-t border-stone-200 pt-4">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                     Starting from
                   </div>
-                  <div className="font-serif text-3xl text-stone-900">$249</div>
+                  <div className="font-serif text-2xl text-stone-900">$249</div>
                 </div>
                 <a
                   href="#visualize"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-luxe transition hover:bg-stone-700"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-luxe transition hover:bg-stone-700"
                 >
                   Preview On My Home <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
