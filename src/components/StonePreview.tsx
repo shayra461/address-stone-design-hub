@@ -8,6 +8,8 @@ export default function StonePreview({
   border,
   profile,
   color,
+  numberScale = 1,
+  streetScale = 1,
 }: StoneDesign) {
   const radius =
     profile === "contour"
