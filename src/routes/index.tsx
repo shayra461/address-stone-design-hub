@@ -626,7 +626,7 @@ function Configurator() {
                 <input
                   value={number}
                   onChange={(e) => update("number", e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 font-serif text-2xl text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-3 py-2 font-serif text-xl text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
               <div>
@@ -636,7 +636,7 @@ function Configurator() {
                 <input
                   value={street}
                   onChange={(e) => update("street", e.target.value.toUpperCase())}
-                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-3 py-2 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
 
@@ -739,7 +739,7 @@ function Configurator() {
                       key={c}
                       onClick={() => update("color", c)}
                       title={COLOR_META[c].label}
-                      className={`group relative h-12 overflow-hidden rounded-xl border transition-all ${
+                      className={`group relative h-10 overflow-hidden rounded-lg border transition-all ${
                         color === c
                           ? "border-accent ring-2 ring-accent/40"
                           : "border-stone-200 hover:border-stone-300"
