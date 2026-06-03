@@ -188,25 +188,30 @@ function Hero() {
           alt=""
           width={1920}
           height={1200}
-          className="h-full w-full object-cover opacity-25"
+          className="h-full w-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+        {/* Cinematic vignette + dark gradient for readability */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,10,14,0.55)_55%,rgba(6,8,12,0.95)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
+        {/* Subtle accent glow */}
+        <div className="absolute -top-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-10 lg:px-10">
         <div className="animate-fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-background/70 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-stone-700 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-foreground/80 backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-accent" />
             Design · Visualize · Order
           </span>
 
-          <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight text-stone-900 text-balance sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight text-foreground text-balance sm:text-6xl lg:text-7xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
             Custom Address Stones,{" "}
             <span className="gradient-text-bronze italic">Built to Last.</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/75">
             Design, customize, and visualize a premium cast address stone on your
             own home—then order in minutes. Architectural-grade craftsmanship,
             made in the USA.
@@ -222,7 +227,7 @@ function Hero() {
             </a>
             <a
               href="#gallery"
-              className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-background/60 px-7 py-4 text-sm font-medium text-stone-900 backdrop-blur transition-all hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 text-sm font-medium text-foreground backdrop-blur transition-all hover:border-accent hover:text-accent"
             >
               View Gallery
             </a>
@@ -237,13 +242,14 @@ function Hero() {
             ].map((t) => (
               <div key={t.label} className="flex items-center gap-2">
                 <t.icon className="h-4 w-4 text-accent" />
-                <span className="text-xs font-medium uppercase tracking-wider text-stone-700">
+                <span className="text-xs font-medium uppercase tracking-wider text-foreground/70">
                   {t.label}
                 </span>
               </div>
             ))}
           </div>
         </div>
+
 
         {/* Mini live configurator card */}
         <div className="relative animate-fade-up delay-200 lg:pl-6">
