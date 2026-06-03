@@ -1213,22 +1213,24 @@ function Footer() {
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <main>
-        <Hero />
-        <TrustBar />
-        <WhyChoose />
-        <Collections />
-        <Configurator />
-        <Visualization />
-        <Quality />
-        <Gallery />
-        <Testimonials />
-        <Process />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <DesignProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main>
+          <Hero />
+          <TrustBar />
+          <WhyChoose />
+          <Collections />
+          <Configurator />
+          <Visualization />
+          <Quality />
+          <Gallery />
+          <Testimonials />
+          <Process />
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+    </DesignProvider>
   );
 }
