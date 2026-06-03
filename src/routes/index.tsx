@@ -564,7 +564,7 @@ function Collections() {
 
 function Configurator() {
   const { design, update } = useDesign();
-  const { number, street, font, border, profile, color, size } = design;
+  const { number, street, font, border, profile, color, size, numberScale, streetScale } = design;
 
   const Tile = ({
     active,
