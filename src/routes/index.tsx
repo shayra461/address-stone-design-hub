@@ -17,10 +17,13 @@ import {
   Package,
   Quote,
   ShieldCheck,
+  ShoppingBag,
   Sparkles,
   Star,
   Truck,
+  User,
   X,
+
 } from "lucide-react";
 
 import logoAsset from "@/assets/asd-logo.png.asset.json";
