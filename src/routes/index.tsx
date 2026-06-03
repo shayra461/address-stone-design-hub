@@ -640,6 +640,46 @@ function Configurator() {
               </div>
 
               <div>
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    Number Size
+                  </label>
+                  <span className="text-[10px] tabular-nums text-muted-foreground">
+                    {Math.round(numberScale * 100)}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0.6}
+                  max={1.6}
+                  step={0.05}
+                  value={numberScale}
+                  onChange={(e) => update("numberScale", parseFloat(e.target.value))}
+                  className="mt-2 w-full accent-[var(--bronze,theme(colors.accent.DEFAULT))]"
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    Street Size
+                  </label>
+                  <span className="text-[10px] tabular-nums text-muted-foreground">
+                    {Math.round(streetScale * 100)}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0.6}
+                  max={1.8}
+                  step={0.05}
+                  value={streetScale}
+                  onChange={(e) => update("streetScale", parseFloat(e.target.value))}
+                  className="mt-2 w-full accent-[var(--bronze,theme(colors.accent.DEFAULT))]"
+                />
+              </div>
+
+              <div>
                 <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Font
                 </label>
