@@ -1237,10 +1237,12 @@ function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] text-stone-900">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-accent" /> (888) 555-0142
+              <Phone className="h-4 w-4 text-accent" />
+              <span>(888) 555-0142</span>
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-accent" /> hello@addressstonedirect.com
+              <Mail className="h-4 w-4 text-accent" />
+              <span>hello@addressstonedirect.com</span>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-accent" />
