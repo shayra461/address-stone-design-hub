@@ -588,7 +588,7 @@ function Configurator() {
   );
 
   return (
-    <section id="configurator" className="py-24 lg:py-32">
+    <section id="configurator" className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHead
           center
@@ -602,8 +602,8 @@ function Configurator() {
           subtitle="Adjust every detail—number, street, font, border, profile, color, and size—and watch your stone update instantly. Your design carries straight into the home visualizer."
         />
 
-        <div className="mx-auto mt-16 max-w-6xl overflow-hidden rounded-[2rem] border border-stone-200 bg-card shadow-luxe-lg">
-          <div className="flex items-center justify-between border-b border-stone-200 bg-stone-100/70 px-5 py-3">
+        <div className="mx-auto mt-10 max-w-6xl overflow-hidden rounded-[2rem] border border-stone-200 bg-card shadow-luxe-lg">
+          <div className="flex items-center justify-between border-b border-stone-200 bg-stone-100/70 px-5 py-2.5">
             <div className="flex items-center gap-2">
               <div className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
               <div className="h-2.5 w-2.5 rounded-full bg-bronze-soft" />
@@ -615,9 +615,10 @@ function Configurator() {
             <div className="text-[10px] uppercase tracking-[0.25em] text-accent">● Live</div>
           </div>
 
-          <div className="grid gap-0 lg:grid-cols-[360px_1fr]">
+          <div className="grid gap-0 lg:grid-cols-[340px_1fr]">
             {/* Left panel */}
-            <div className="space-y-6 border-stone-200 bg-stone-50/60 p-6 lg:border-r">
+            <div className="space-y-4 border-stone-200 bg-stone-50/60 p-5 lg:border-r">
+
               <div>
                 <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Address Number
@@ -625,7 +626,7 @@ function Configurator() {
                 <input
                   value={number}
                   onChange={(e) => update("number", e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 font-serif text-2xl text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-3 py-2 font-serif text-xl text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
               <div>
@@ -635,7 +636,7 @@ function Configurator() {
                 <input
                   value={street}
                   onChange={(e) => update("street", e.target.value.toUpperCase())}
-                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-4 py-3 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  className="mt-2 w-full rounded-lg border border-stone-200 bg-background px-3 py-2 text-sm tracking-[0.2em] text-stone-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 />
               </div>
 
@@ -738,7 +739,7 @@ function Configurator() {
                       key={c}
                       onClick={() => update("color", c)}
                       title={COLOR_META[c].label}
-                      className={`group relative h-12 overflow-hidden rounded-xl border transition-all ${
+                      className={`group relative h-10 overflow-hidden rounded-lg border transition-all ${
                         color === c
                           ? "border-accent ring-2 ring-accent/40"
                           : "border-stone-200 hover:border-stone-300"
@@ -778,7 +779,7 @@ function Configurator() {
             </div>
 
             {/* Right preview */}
-            <div className="relative flex flex-col bg-gradient-to-br from-stone-100/80 to-stone-50 p-8 lg:p-12">
+            <div className="relative flex flex-col bg-gradient-to-br from-stone-100/80 to-stone-50 p-5 lg:p-6">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Live Stone Preview
@@ -787,25 +788,26 @@ function Configurator() {
                   Render quality · 4K
                 </span>
               </div>
-              <div className="my-auto py-10">
+              <div className="flex flex-1 items-center justify-center py-4">
                 <StonePreview {...design} />
               </div>
 
-              <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-stone-200 pt-5">
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-4 border-t border-stone-200 pt-4">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                     Starting from
                   </div>
-                  <div className="font-serif text-3xl text-stone-900">$249</div>
+                  <div className="font-serif text-2xl text-stone-900">$249</div>
                 </div>
                 <a
                   href="#visualize"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-luxe transition hover:bg-stone-700"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-luxe transition hover:bg-stone-700"
                 >
                   Preview On My Home <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
