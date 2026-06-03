@@ -400,7 +400,18 @@ function WhyChoose() {
     },
   ];
   return (
-    <section className="py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Stone texture backdrop */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={stoneTexture}
+          alt=""
+          className="h-full w-full object-cover opacity-[0.12] mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+        <div className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.05] blur-[140px]" />
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHead
           eyebrow="Why Address Stone Direct"
@@ -417,18 +428,42 @@ function WhyChoose() {
           {features.map((f, i) => (
             <div
               key={f.title}
-              className="lift group relative overflow-hidden rounded-2xl border border-stone-200 bg-card p-7 shadow-luxe"
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/15 via-white/5 to-transparent transition-all duration-500 hover:from-accent/60 hover:via-accent/20"
             >
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-accent/10" />
-              <div className="relative">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-stone-100 ring-1 ring-stone-200 transition group-hover:bg-accent group-hover:text-accent-foreground">
-                  <f.icon className="h-5 w-5" />
+              <div className="relative h-full overflow-hidden rounded-2xl bg-card/60 p-7 backdrop-blur-xl">
+                {/* Stone texture layer per card */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-screen transition-opacity duration-500 group-hover:opacity-[0.18]"
+                  style={{
+                    backgroundImage: `url(${stoneTexture})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+                {/* Accent glow */}
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-2xl transition-all duration-700 group-hover:scale-150 group-hover:bg-accent/20" />
+                {/* Top hairline */}
+                <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+
+                <div className="relative">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.02] ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 group-hover:ring-accent/60 group-hover:shadow-[0_0_30px_-5px_var(--accent)]">
+                    <f.icon className="h-6 w-6 text-accent transition-transform duration-500 group-hover:scale-110" />
+                  </div>
+
+                  <div className="mt-8 flex items-center gap-3">
+                    <span className="font-serif text-xs tracking-[0.3em] text-accent/70">
+                      0{i + 1}
+                    </span>
+                    <span className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+                  </div>
+
+                  <h3 className="mt-3 font-serif text-2xl text-foreground tracking-tight">
+                    {f.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/65">
+                    {f.desc}
+                  </p>
                 </div>
-                <div className="mt-6 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                  0{i + 1}
-                </div>
-                <h3 className="mt-2 font-serif text-2xl text-stone-900">{f.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
               </div>
             </div>
           ))}
@@ -437,6 +472,7 @@ function WhyChoose() {
     </section>
   );
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                              Collections                                   */
