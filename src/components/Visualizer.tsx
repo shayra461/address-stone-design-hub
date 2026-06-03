@@ -313,36 +313,36 @@ export default function Visualizer({ defaultHouseSrc }: Props) {
           </div>
         </div>
 
-        {/* Controls bar */}
-        <div className="flex flex-wrap items-center gap-3 border-t border-white/10 bg-gradient-to-r from-stone-950 via-stone-900 to-stone-950 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+        {/* Controls bar — solid dark surface */}
+        <div className="grid grid-cols-2 gap-2.5 border-t border-white/10 bg-stone-950 p-4 sm:grid-cols-4">
           <button
             onClick={resetPosition}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-white/12 px-5 py-2.5 text-sm font-bold text-foreground shadow-[0_8px_22px_rgba(0,0,0,0.28)] backdrop-blur transition hover:border-accent/70 hover:bg-accent/20 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
           >
             <RotateCcw className="h-4 w-4 text-accent" /> Reset Position
           </button>
           <button
             onClick={centerStone}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-white/12 px-5 py-2.5 text-sm font-bold text-foreground shadow-[0_8px_22px_rgba(0,0,0,0.28)] backdrop-blur transition hover:border-accent/70 hover:bg-accent/20 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
           >
             <Crosshair className="h-4 w-4 text-accent" /> Center Stone
           </button>
           <button
             onClick={savePreview}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-white/12 px-5 py-2.5 text-sm font-bold text-foreground shadow-[0_8px_22px_rgba(0,0,0,0.28)] backdrop-blur transition hover:border-accent/70 hover:bg-accent/20 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
           >
             <Save className="h-4 w-4 text-accent" /> Save Preview
           </button>
           <button
             onClick={downloadImage}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-white/12 px-5 py-2.5 text-sm font-bold text-foreground shadow-[0_8px_22px_rgba(0,0,0,0.28)] backdrop-blur transition hover:border-accent/70 hover:bg-accent/20 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
           >
             <Download className="h-4 w-4 text-accent" /> Download
           </button>
         </div>
 
-        {/* Checkout bar - separated */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-gradient-to-r from-stone-950 via-stone-900 to-stone-950 px-5 py-4">
+        {/* Checkout bar — solid dark, bronze CTA */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-accent/20 bg-stone-950 px-5 py-4">
           <div className="text-[11px] uppercase tracking-[0.25em] text-foreground/70">
             Ready to order this design?
           </div>
