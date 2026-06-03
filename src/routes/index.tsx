@@ -1113,90 +1113,64 @@ function FinalCTA() {
 /* -------------------------------------------------------------------------- */
 
 function Footer() {
-  const cols = [
-    {
-      title: "Products",
-      links: ["Monolithic Face", "Monolithic Rise", "Monolithic Inset", "Monolithic Contour"],
-    },
-    { title: "Company", links: ["About Us", "Gallery", "Reviews", "Contact"] },
-    { title: "Resources", links: ["FAQs", "Installation Guide", "Shipping Information", "Care & Warranty"] },
+  const nav = [
+    { label: "Collections", href: "#collections" },
+    { label: "Configurator", href: "#configurator" },
+    { label: "Visualize", href: "#visualize" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Process", href: "#process" },
   ];
   return (
-    <footer className="border-t border-stone-200 bg-stone-50">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:px-10">
-        <div>
-          <div className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="Address Stone Direct" className="h-12 w-auto" />
-            <div className="leading-tight">
-              <div className="font-serif text-lg text-stone-900">Address Stone Direct</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                Custom Cast Stone · USA
-              </div>
-            </div>
-          </div>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Premium custom address stones, designed online and crafted in the
-            USA. Built to elevate your curb appeal—and last a lifetime.
-          </p>
-          <div className="mt-6 flex items-center gap-3">
-            {[Instagram, Facebook].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 text-stone-700 transition hover:border-accent hover:text-accent"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
+    <footer className="relative overflow-hidden border-t border-white/10 bg-gradient-to-b from-background to-black">
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[60rem] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl" />
+
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-6 py-20 text-center lg:px-10 lg:py-24">
+        {/* Centered logo only — clear and visible */}
+        <a href="#" className="group inline-block">
+          <img
+            src={logoAsset.url}
+            alt="Address Stone Direct"
+            className="h-24 w-auto object-contain drop-shadow-[0_8px_30px_rgba(220,225,235,0.35)] transition-transform duration-700 group-hover:scale-105 sm:h-28 lg:h-32"
+          />
+        </a>
+
+        <div className="mt-6 text-[11px] uppercase tracking-[0.5em] text-muted-foreground">
+          Custom Cast Stone · Made in USA
         </div>
 
-        {cols.map((c) => (
-          <div key={c.title}>
-            <h4 className="text-[11px] uppercase tracking-[0.25em] text-stone-900">{c.title}</h4>
-            <ul className="mt-5 space-y-3">
-              {c.links.map((l) => (
-                <li key={l}>
-                  <a href="#" className="text-sm text-muted-foreground transition hover:text-accent">
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <nav className="mt-10 flex flex-wrap items-center justify-center gap-x-9 gap-y-3">
+          {nav.map((n) => (
+            <a
+              key={n.label}
+              href={n.href}
+              className="text-sm font-medium uppercase tracking-[0.22em] text-stone-700 transition-colors hover:text-foreground"
+            >
+              {n.label}
+            </a>
+          ))}
+        </nav>
 
-        <div>
-          <h4 className="text-[11px] uppercase tracking-[0.25em] text-stone-900">Contact</h4>
-          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-accent" />
-              <span>(888) 555-0142</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-accent" />
-              <span>hello@addressstonedirect.com</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 text-accent" />
-              <span>
-                Address Stone Direct LLC
-                <br />
-                United States
-              </span>
-            </li>
-          </ul>
+        <div className="mt-10 flex items-center gap-3">
+          {[Instagram, Facebook].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              aria-label="Social link"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-700 transition hover:border-white/40 hover:bg-white/10 hover:text-foreground"
+            >
+              <Icon className="h-4 w-4" />
+            </a>
+          ))}
         </div>
       </div>
 
-      <div className="border-t border-stone-200">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-muted-foreground sm:flex-row lg:px-10">
+      <div className="relative border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-muted-foreground sm:flex-row lg:px-10">
           <div>© {new Date().getFullYear()} Address Stone Direct LLC. All rights reserved.</div>
-          <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-accent">Privacy</a>
-            <a href="#" className="hover:text-accent">Terms</a>
-            <a href="#" className="hover:text-accent">Returns</a>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-foreground">Privacy</a>
+            <a href="#" className="hover:text-foreground">Terms</a>
+            <a href="#" className="hover:text-foreground">Returns</a>
           </div>
         </div>
       </div>
