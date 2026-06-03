@@ -791,11 +791,11 @@ function Visualization() {
   ];
 
   return (
-    <section id="visualize" className="relative overflow-hidden bg-stone-900 py-24 text-stone-100 lg:py-32">
-      <div className="absolute inset-0 -z-10 opacity-20">
+    <section id="visualize" className="relative overflow-hidden py-24 lg:py-32">
+      <div className="absolute inset-0 -z-10 opacity-30">
         <img src={stoneTexture} alt="" className="h-full w-full object-cover" />
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-stone-900 via-stone-900/95 to-stone-900" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/95 to-background" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:px-10">
         <div>
@@ -803,11 +803,11 @@ function Visualization() {
             <span className="h-px w-8 bg-bronze-soft/60" />
             Visualization Tool
           </span>
-          <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
             See it on your home{" "}
             <span className="italic text-bronze-soft">before you buy.</span>
           </h2>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-stone-300">
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
             Upload a photo of your home and preview your custom address stone
             exactly where it will be installed—down to the placement and scale.
           </p>
@@ -822,8 +822,8 @@ function Visualization() {
                   <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft/80">
                     Step 0{i + 1}
                   </div>
-                  <div className="mt-0.5 font-serif text-xl">{s.title}</div>
-                  <div className="text-sm text-stone-400">{s.desc}</div>
+                  <div className="mt-0.5 font-serif text-xl text-foreground">{s.title}</div>
+                  <div className="text-sm text-muted-foreground">{s.desc}</div>
                 </div>
               </li>
             ))}
