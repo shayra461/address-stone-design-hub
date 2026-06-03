@@ -314,38 +314,43 @@ export default function Visualizer({ defaultHouseSrc }: Props) {
         </div>
 
         {/* Controls bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-stone-900/80 p-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              onClick={resetPosition}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-foreground transition hover:bg-white/10"
-            >
-              <RotateCcw className="h-3.5 w-3.5" /> Reset Position
-            </button>
-            <button
-              onClick={centerStone}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-foreground transition hover:bg-white/10"
-            >
-              <Crosshair className="h-3.5 w-3.5" /> Center Stone
-            </button>
-            <button
-              onClick={savePreview}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-foreground transition hover:bg-white/10"
-            >
-              <Save className="h-3.5 w-3.5" /> Save Preview
-            </button>
-            <button
-              onClick={downloadImage}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-foreground transition hover:bg-white/10"
-            >
-              <Download className="h-3.5 w-3.5" /> Download
-            </button>
+        <div className="flex flex-wrap items-center gap-2 border-t border-white/10 bg-stone-900/80 p-4">
+          <button
+            onClick={resetPosition}
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:bg-accent/20 hover:border-accent/60"
+          >
+            <RotateCcw className="h-4 w-4 text-accent" /> Reset Position
+          </button>
+          <button
+            onClick={centerStone}
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:bg-accent/20 hover:border-accent/60"
+          >
+            <Crosshair className="h-4 w-4 text-accent" /> Center Stone
+          </button>
+          <button
+            onClick={savePreview}
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:bg-accent/20 hover:border-accent/60"
+          >
+            <Save className="h-4 w-4 text-accent" /> Save Preview
+          </button>
+          <button
+            onClick={downloadImage}
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition hover:bg-accent/20 hover:border-accent/60"
+          >
+            <Download className="h-4 w-4 text-accent" /> Download
+          </button>
+        </div>
+
+        {/* Checkout bar - separated */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-gradient-to-r from-stone-950 via-stone-900 to-stone-950 px-5 py-4">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-foreground/70">
+            Ready to order this design?
           </div>
           <a
             href="#checkout"
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-accent-foreground shadow-luxe transition hover:brightness-110"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-xs font-bold uppercase tracking-wider text-accent-foreground shadow-luxe transition hover:brightness-110"
           >
-            <ShoppingCart className="h-3.5 w-3.5" /> Continue to Checkout
+            <ShoppingCart className="h-4 w-4" /> Continue to Checkout
           </a>
         </div>
       </div>
