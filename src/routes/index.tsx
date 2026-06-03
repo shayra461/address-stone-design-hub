@@ -1152,11 +1152,11 @@ function FinalCTA() {
           <span className="h-px w-8 bg-bronze-soft/60" />
           Ready When You Are
         </span>
-        <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-stone-50 text-balance sm:text-5xl lg:text-6xl">
+        <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
           Ready to create your{" "}
           <span className="italic text-bronze-soft">custom address stone?</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-stone-300">
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           Design a premium address stone tailored specifically to your home—then visualize it on your house before you order.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
