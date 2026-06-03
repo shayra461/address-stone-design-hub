@@ -602,8 +602,8 @@ function Configurator() {
           subtitle="Adjust every detail—number, street, font, border, profile, color, and size—and watch your stone update instantly. Your design carries straight into the home visualizer."
         />
 
-        <div className="mx-auto mt-16 max-w-6xl overflow-hidden rounded-[2rem] border border-stone-200 bg-card shadow-luxe-lg">
-          <div className="flex items-center justify-between border-b border-stone-200 bg-stone-100/70 px-5 py-3">
+        <div className="mx-auto mt-10 max-w-6xl overflow-hidden rounded-[2rem] border border-stone-200 bg-card shadow-luxe-lg">
+          <div className="flex items-center justify-between border-b border-stone-200 bg-stone-100/70 px-5 py-2.5">
             <div className="flex items-center gap-2">
               <div className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
               <div className="h-2.5 w-2.5 rounded-full bg-bronze-soft" />
@@ -615,9 +615,10 @@ function Configurator() {
             <div className="text-[10px] uppercase tracking-[0.25em] text-accent">● Live</div>
           </div>
 
-          <div className="grid gap-0 lg:grid-cols-[360px_1fr]">
+          <div className="grid gap-0 lg:grid-cols-[340px_1fr]">
             {/* Left panel */}
-            <div className="space-y-6 border-stone-200 bg-stone-50/60 p-6 lg:border-r">
+            <div className="space-y-4 border-stone-200 bg-stone-50/60 p-5 lg:border-r">
+
               <div>
                 <label className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Address Number
