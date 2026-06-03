@@ -314,31 +314,22 @@ export default function Visualizer({ defaultHouseSrc }: Props) {
         </div>
 
         {/* Controls bar — solid dark surface */}
-        <div className="grid grid-cols-2 gap-2.5 border-t border-white/10 bg-stone-950 p-4 sm:grid-cols-4">
-          <button
-            onClick={resetPosition}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
-          >
-            <RotateCcw className="h-4 w-4 text-accent" /> Reset Position
-          </button>
-          <button
-            onClick={centerStone}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
-          >
-            <Crosshair className="h-4 w-4 text-accent" /> Center Stone
-          </button>
-          <button
-            onClick={savePreview}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
-          >
-            <Save className="h-4 w-4 text-accent" /> Save Preview
-          </button>
-          <button
-            onClick={downloadImage}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/30 bg-stone-900 px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:bg-stone-800 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
-          >
-            <Download className="h-4 w-4 text-accent" /> Download
-          </button>
+        <div className="grid grid-cols-2 gap-2.5 border-t border-white/10 bg-[#0d0d0f] p-4 sm:grid-cols-4">
+          {[
+            { onClick: resetPosition, Icon: RotateCcw, label: "Reset Position" },
+            { onClick: centerStone, Icon: Crosshair, label: "Center Stone" },
+            { onClick: savePreview, Icon: Save, label: "Save Preview" },
+            { onClick: downloadImage, Icon: Download, label: "Download" },
+          ].map(({ onClick, Icon, label }) => (
+            <button
+              key={label}
+              onClick={onClick}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent/40 bg-[#1a1a1d] px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+            >
+              <Icon className="h-4 w-4 text-accent transition group-hover:text-accent-foreground" />
+              <span>{label}</span>
+            </button>
+          ))}
         </div>
 
         {/* Checkout bar — solid dark, bronze CTA */}
