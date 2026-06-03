@@ -179,78 +179,7 @@ function Header() {
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                Stone Preview                               */
-/* -------------------------------------------------------------------------- */
-
-interface PreviewProps {
-  number: string;
-  street: string;
-  font: "serif" | "sans";
-  border: "classic" | "beveled" | "double" | "none";
-  profile: "face" | "rise" | "inset" | "contour";
-}
-
-function StonePreview({ number, street, font, border, profile }: PreviewProps) {
-  const radius =
-    profile === "contour"
-      ? "rounded-[28px]"
-      : profile === "rise"
-        ? "rounded-t-[80px] rounded-b-xl"
-        : "rounded-xl";
-
-  const inset =
-    profile === "inset"
-      ? "inset-5 shadow-[inset_0_0_30px_rgba(60,45,30,0.18)]"
-      : "inset-3";
-
-  const borderStyle =
-    border === "classic"
-      ? "border-[3px] border-stone-700/30"
-      : border === "beveled"
-        ? "border-[5px] border-stone-700/25 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.15)]"
-        : border === "double"
-          ? "border-[3px] border-stone-700/30 outline outline-2 outline-offset-[6px] outline-stone-700/20"
-          : "";
-
-  return (
-    <div
-      className={`relative aspect-[16/9] w-full overflow-hidden ${radius} shadow-luxe-lg`}
-      style={{
-        backgroundImage: `url(${stoneTexture})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-black/15" />
-      <div
-        className={`absolute ${inset} flex flex-col items-center justify-center ${borderStyle} ${radius}`}
-      >
-        <div
-          className={`${
-            font === "serif" ? "font-serif" : "font-sans font-semibold"
-          } text-[14vw] leading-none sm:text-7xl md:text-8xl`}
-          style={{
-            color: "rgba(28,22,16,0.88)",
-            textShadow: "0 1px 0 rgba(255,255,255,0.55), 0 -1px 2px rgba(0,0,0,0.25)",
-          }}
-        >
-          {number || "0000"}
-        </div>
-        {street && (
-          <div
-            className={`${
-              font === "serif" ? "font-serif" : "font-sans"
-            } mt-2 text-xs uppercase tracking-[0.3em] sm:text-sm`}
-            style={{ color: "rgba(28,22,16,0.7)" }}
-          >
-            {street}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+/* StonePreview moved to src/components/StonePreview.tsx */
 
 /* -------------------------------------------------------------------------- */
 /*                                    Hero                                    */
