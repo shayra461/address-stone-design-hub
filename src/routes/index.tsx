@@ -741,12 +741,14 @@ function Configurator() {
 /* -------------------------------------------------------------------------- */
 
 function Visualization() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const steps = [
-    { icon: Upload, title: "Upload Your Home", desc: "Snap or upload a photo of your entry, mailbox, or pillar." },
-    { icon: ImageIcon, title: "Stone Auto-Appears", desc: "Your custom stone is instantly placed onto your home." },
-    { icon: Move, title: "Drag & Reposition", desc: "Move, resize and rotate to find the perfect placement." },
-    { icon: Sparkles, title: "Preview the Look", desc: "See exactly how your stone will look—before you buy." },
-    { icon: ShieldCheck, title: "Order with Confidence", desc: "Place your order knowing the result will be just right." },
+    { icon: Sparkles, title: "Design In Configurator", desc: "Every change you make above syncs into the visualizer instantly." },
+    { icon: ImageIcon, title: "Upload Your Home", desc: "Snap or upload a photo of your entry, pillar, or mailbox." },
+    { icon: Move, title: "Drag · Resize · Rotate", desc: "Position your custom stone exactly where it will be installed." },
+    { icon: ShieldCheck, title: "Save & Order", desc: "Capture a preview, download, or continue straight to checkout." },
   ];
 
   return (
@@ -756,93 +758,65 @@ function Visualization() {
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/95 to-background" />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:px-10">
-        <div>
-          <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-bronze-soft">
-            <span className="h-px w-8 bg-bronze-soft/60" />
-            Visualization Tool
-          </span>
-          <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
-            See it on your home{" "}
-            <span className="italic text-bronze-soft">before you buy.</span>
-          </h2>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Upload a photo of your home and preview your custom address stone
-            exactly where it will be installed—down to the placement and scale.
-          </p>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.45fr]">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-bronze-soft">
+              <span className="h-px w-8 bg-bronze-soft/60" />
+              Address Stone Visualizer
+            </span>
+            <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
+              See it on your home{" "}
+              <span className="italic text-bronze-soft">before you buy.</span>
+            </h2>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
+              Upload a photo of your home and preview your exact custom design—
+              live from the configurator—right where it will be installed.
+            </p>
 
-          <ol className="mt-10 space-y-5">
-            {steps.map((s, i) => (
-              <li key={s.title} className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-bronze/40 bg-bronze/10 text-bronze-soft">
-                  <s.icon className="h-4 w-4" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft/80">
-                    Step 0{i + 1}
+            <ol className="mt-10 space-y-5">
+              {steps.map((s, i) => (
+                <li key={s.title} className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-bronze/40 bg-bronze/10 text-bronze-soft">
+                    <s.icon className="h-4 w-4" />
                   </div>
-                  <div className="mt-0.5 font-serif text-xl text-foreground">{s.title}</div>
-                  <div className="text-sm text-muted-foreground">{s.desc}</div>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <a
-            href="#configurator"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-sm font-medium text-accent-foreground shadow-luxe-lg transition hover:brightness-110"
-          >
-            Try Visualization Tool <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-
-        {/* Mockup */}
-        <div className="relative">
-          <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-tr from-accent/30 via-transparent to-accent/20 blur-3xl" />
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-stone-800/50 shadow-luxe-lg backdrop-blur-xl">
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-              <div className="flex items-center gap-2">
-                <div className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-                <div className="h-2.5 w-2.5 rounded-full bg-bronze-soft" />
-                <div className="h-2.5 w-2.5 rounded-full bg-stone-300" />
-              </div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-stone-400">
-                yourhome.jpg · 1920×1080
-              </div>
-            </div>
-            <div className="relative aspect-[4/3]">
-              <img src={heroHome} alt="Your home preview" className="absolute inset-0 h-full w-full object-cover" />
-              {/* Overlay stone */}
-              <div className="absolute left-[18%] top-[55%] w-[28%] -rotate-2 animate-float-soft">
-                <div className="relative">
-                  <div className="absolute -inset-2 rounded-xl border-2 border-dashed border-accent/80" />
-                  <StonePreview
-                    number="4521"
-                    street="MAPLE RIDGE"
-                    font="serif"
-                    border="classic"
-                    profile="face"
-                  />
-                  <div className="absolute -bottom-3 -right-3 rounded-full bg-accent px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground shadow-luxe">
-                    Drag me
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft/80">
+                      Step 0{i + 1}
+                    </div>
+                    <div className="mt-0.5 font-serif text-xl text-foreground">{s.title}</div>
+                    <div className="text-sm text-muted-foreground">{s.desc}</div>
                   </div>
-                </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Real interactive visualizer */}
+          <div className="relative">
+            <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-tr from-accent/30 via-transparent to-accent/20 blur-3xl" />
+            {mounted ? (
+              <Suspense
+                fallback={
+                  <div className="flex aspect-[4/3] w-full items-center justify-center rounded-[2rem] border border-white/10 bg-stone-900/60 text-sm text-muted-foreground">
+                    Loading visualizer…
+                  </div>
+                }
+              >
+                <Visualizer defaultHouseSrc={heroHome} />
+              </Suspense>
+            ) : (
+              <div className="flex aspect-[4/3] w-full items-center justify-center rounded-[2rem] border border-white/10 bg-stone-900/60 text-sm text-muted-foreground">
+                Loading visualizer…
               </div>
-              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
-                <div className="flex items-center gap-2">
-                  <Move className="h-3.5 w-3.5" /> Reposition · Resize · Rotate
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
-                Scale 78% · Tilt −2°
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                             Quality Difference                             */
