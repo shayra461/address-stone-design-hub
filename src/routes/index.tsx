@@ -219,8 +219,11 @@ function StonePreview({ number, street, font, border, profile }: PreviewProps) {
         <div
           className={`${
             font === "serif" ? "font-serif" : "font-sans font-semibold"
-          } text-[14vw] leading-none text-stone-900/85 drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] sm:text-7xl md:text-8xl`}
-          style={{ textShadow: "0 1px 0 rgba(255,255,255,0.6), 0 -1px 2px rgba(0,0,0,0.25)" }}
+          } text-[14vw] leading-none sm:text-7xl md:text-8xl`}
+          style={{
+            color: "rgba(28,22,16,0.88)",
+            textShadow: "0 1px 0 rgba(255,255,255,0.55), 0 -1px 2px rgba(0,0,0,0.25)",
+          }}
         >
           {number || "0000"}
         </div>
@@ -228,7 +231,8 @@ function StonePreview({ number, street, font, border, profile }: PreviewProps) {
           <div
             className={`${
               font === "serif" ? "font-serif" : "font-sans"
-            } mt-2 text-xs uppercase tracking-[0.3em] text-stone-900/70 sm:text-sm`}
+            } mt-2 text-xs uppercase tracking-[0.3em] sm:text-sm`}
+            style={{ color: "rgba(28,22,16,0.7)" }}
           >
             {street}
           </div>
@@ -557,7 +561,7 @@ function Collections() {
                   height={1500}
                   className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-2xl text-stone-900">{it.title}</h3>
@@ -787,11 +791,11 @@ function Visualization() {
   ];
 
   return (
-    <section id="visualize" className="relative overflow-hidden bg-stone-900 py-24 text-stone-100 lg:py-32">
-      <div className="absolute inset-0 -z-10 opacity-20">
+    <section id="visualize" className="relative overflow-hidden py-24 lg:py-32">
+      <div className="absolute inset-0 -z-10 opacity-30">
         <img src={stoneTexture} alt="" className="h-full w-full object-cover" />
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-stone-900 via-stone-900/95 to-stone-900" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/90 via-background/95 to-background" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:px-10">
         <div>
@@ -799,11 +803,11 @@ function Visualization() {
             <span className="h-px w-8 bg-bronze-soft/60" />
             Visualization Tool
           </span>
-          <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
             See it on your home{" "}
             <span className="italic text-bronze-soft">before you buy.</span>
           </h2>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-stone-300">
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
             Upload a photo of your home and preview your custom address stone
             exactly where it will be installed—down to the placement and scale.
           </p>
@@ -818,8 +822,8 @@ function Visualization() {
                   <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft/80">
                     Step 0{i + 1}
                   </div>
-                  <div className="mt-0.5 font-serif text-xl">{s.title}</div>
-                  <div className="text-sm text-stone-400">{s.desc}</div>
+                  <div className="mt-0.5 font-serif text-xl text-foreground">{s.title}</div>
+                  <div className="text-sm text-muted-foreground">{s.desc}</div>
                 </div>
               </li>
             ))}
@@ -865,12 +869,12 @@ function Visualization() {
                   </div>
                 </div>
               </div>
-              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-stone-900/70 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
                 <div className="flex items-center gap-2">
                   <Move className="h-3.5 w-3.5" /> Reposition · Resize · Rotate
                 </div>
               </div>
-              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-stone-900/70 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
                 Scale 78% · Tilt −2°
               </div>
             </div>
@@ -1001,7 +1005,7 @@ function Gallery() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-stone-900/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute bottom-4 left-4 translate-y-3 text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft">View larger</div>
                 <div className="font-serif text-lg">A custom ASD installation</div>
@@ -1141,18 +1145,18 @@ function FinalCTA() {
     <section className="relative overflow-hidden py-24 lg:py-32">
       <div className="absolute inset-0 -z-10">
         <img src={heroHome} alt="" className="h-full w-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-stone-900/85" />
+        <div className="absolute inset-0 bg-black/85" />
       </div>
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-bronze-soft">
           <span className="h-px w-8 bg-bronze-soft/60" />
           Ready When You Are
         </span>
-        <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-stone-50 text-balance sm:text-5xl lg:text-6xl">
+        <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
           Ready to create your{" "}
           <span className="italic text-bronze-soft">custom address stone?</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-stone-300">
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           Design a premium address stone tailored specifically to your home—then visualize it on your house before you order.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -1164,7 +1168,7 @@ function FinalCTA() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-medium text-stone-50 backdrop-blur transition hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-medium text-foreground backdrop-blur transition hover:bg-white/10"
           >
             Contact Us
           </a>
@@ -1237,10 +1241,12 @@ function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] text-stone-900">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-accent" /> (888) 555-0142
+              <Phone className="h-4 w-4 text-accent" />
+              <span>(888) 555-0142</span>
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-accent" /> hello@addressstonedirect.com
+              <Mail className="h-4 w-4 text-accent" />
+              <span>hello@addressstonedirect.com</span>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-accent" />

@@ -4,13 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Google Fonts — premium serif + clean sans */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
-
 /*
- * Address Stone Direct — Modern Architectural Luxury design system.
- * Palette derived from the ASD logo: weathered limestone (warm pale grays
- * with sand undertones) + deep architectural charcoal + soft bronze accent.
+ * Address Stone Direct — Dark Architectural Luxury design system.
+ * Fonts are loaded via <link> in the root route (NEVER via CSS @import on
+ * this stack — it breaks the production build).
+ *
+ * The palette is dark-by-default. The legacy `--stone-*` tokens are remapped
+ * so existing utilities (text-stone-900, bg-stone-100, border-stone-200, etc.)
+ * automatically render correctly on a dark stone-textured surface:
+ *   stone-50/100/200/300 → progressively elevated dark surfaces
+ *   stone-700/900        → light foreground text
  */
 
 @theme inline {
@@ -53,54 +56,56 @@
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 4px 20px -8px rgb(60 50 40 / 0.12);
-  --shadow-elevated: 0 30px 60px -30px rgb(40 32 24 / 0.35);
+  --shadow-soft: 0 4px 20px -8px rgb(0 0 0 / 0.5);
+  --shadow-elevated: 0 30px 60px -30px rgb(0 0 0 / 0.8);
 }
 
 :root {
   --radius: 0.75rem;
 
-  --background: oklch(0.98 0.008 80);
-  --foreground: oklch(0.22 0.012 60);
+  /* Deep charcoal stone background. The body uses the textured image on top. */
+  --background: oklch(0.18 0.005 60);
+  --foreground: oklch(0.96 0.008 80);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.012 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.012 60);
+  --card: oklch(0.22 0.006 60);
+  --card-foreground: oklch(0.96 0.008 80);
+  --popover: oklch(0.22 0.006 60);
+  --popover-foreground: oklch(0.96 0.008 80);
 
-  --primary: oklch(0.27 0.012 60);            /* deep architectural charcoal */
-  --primary-foreground: oklch(0.97 0.01 80);
+  --primary: oklch(0.96 0.008 80);              /* light surface for primary buttons */
+  --primary-foreground: oklch(0.18 0.006 60);
 
-  --secondary: oklch(0.94 0.012 75);
-  --secondary-foreground: oklch(0.27 0.012 60);
+  --secondary: oklch(0.28 0.006 60);
+  --secondary-foreground: oklch(0.96 0.008 80);
 
-  --muted: oklch(0.95 0.01 75);
-  --muted-foreground: oklch(0.5 0.012 65);
+  --muted: oklch(0.26 0.006 60);
+  --muted-foreground: oklch(0.72 0.012 75);
 
-  --accent: oklch(0.62 0.07 55);               /* warm bronze */
-  --accent-foreground: oklch(0.99 0.005 80);
+  --accent: oklch(0.72 0.09 65);                /* warm bronze, brighter for dark bg */
+  --accent-foreground: oklch(0.16 0.006 60);
 
-  --destructive: oklch(0.58 0.18 28);
+  --destructive: oklch(0.62 0.2 28);
   --destructive-foreground: oklch(0.98 0.005 80);
 
-  --border: oklch(0.9 0.012 75);
-  --input: oklch(0.9 0.012 75);
-  --ring: oklch(0.62 0.07 55);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.09 65);
 
-  --stone-50: oklch(0.98 0.008 80);
-  --stone-100: oklch(0.95 0.012 78);
-  --stone-200: oklch(0.9 0.013 75);
-  --stone-300: oklch(0.82 0.014 72);
-  --stone-700: oklch(0.42 0.013 60);
-  --stone-900: oklch(0.22 0.012 60);
-  --bronze: oklch(0.62 0.07 55);
-  --bronze-soft: oklch(0.78 0.05 65);
+  /* Remapped so existing class names render correctly on dark surfaces. */
+  --stone-50:  oklch(0.22 0.006 60);            /* elevated dark surface */
+  --stone-100: oklch(0.24 0.006 60);
+  --stone-200: oklch(1 0 0 / 12%);              /* subtle borders */
+  --stone-300: oklch(1 0 0 / 22%);
+  --stone-700: oklch(0.82 0.012 75);            /* secondary light text */
+  --stone-900: oklch(0.97 0.008 80);            /* primary light text */
+  --bronze: oklch(0.72 0.09 65);
+  --bronze-soft: oklch(0.82 0.07 70);
 
   --chart-1: var(--bronze);
   --chart-2: var(--stone-700);
   --chart-3: var(--stone-300);
-  --chart-4: oklch(0.55 0.05 50);
-  --chart-5: oklch(0.7 0.04 70);
+  --chart-4: oklch(0.65 0.06 50);
+  --chart-5: oklch(0.78 0.05 70);
 
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
@@ -112,43 +117,32 @@
   --sidebar-ring: var(--ring);
 }
 
-.dark {
-  --background: oklch(0.18 0.012 60);
-  --foreground: oklch(0.96 0.008 80);
-  --card: oklch(0.22 0.012 60);
-  --card-foreground: oklch(0.96 0.008 80);
-  --popover: oklch(0.22 0.012 60);
-  --popover-foreground: oklch(0.96 0.008 80);
-  --primary: oklch(0.96 0.008 80);
-  --primary-foreground: oklch(0.22 0.012 60);
-  --secondary: oklch(0.28 0.012 60);
-  --secondary-foreground: oklch(0.96 0.008 80);
-  --muted: oklch(0.28 0.012 60);
-  --muted-foreground: oklch(0.7 0.012 70);
-  --accent: oklch(0.7 0.08 60);
-  --accent-foreground: oklch(0.18 0.012 60);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.08 60);
-}
-
 @layer base {
   * {
     border-color: var(--color-border);
   }
   html {
     scroll-behavior: smooth;
+    background-color: #0c0c0e;
   }
   body {
-    background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    background-color: #0c0c0e;
+    background-image:
+      radial-gradient(ellipse at top, rgb(40 38 40 / 0.55), transparent 60%),
+      url("/__l5e/assets-v1/b44fd82e-ad38-4ee6-97fe-99c6b0844697/dark-stone-bg.jpg");
+    background-size: auto, 1400px auto;
+    background-position: center top, center;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, fixed;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
+    color: var(--color-foreground);
   }
 }
 
@@ -161,22 +155,21 @@
 }
 
 @utility glass-panel {
-  background: color-mix(in oklab, white 70%, transparent);
+  background: color-mix(in oklab, black 55%, transparent);
   backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid color-mix(in oklab, var(--color-stone-200) 80%, transparent);
+  border: 1px solid color-mix(in oklab, white 12%, transparent);
 }
 
 @utility shadow-luxe {
   box-shadow:
-    0 1px 2px rgb(40 32 24 / 0.04),
-    0 12px 32px -16px rgb(40 32 24 / 0.18);
+    0 1px 2px rgb(0 0 0 / 0.4),
+    0 12px 32px -16px rgb(0 0 0 / 0.55);
 }
 
 @utility shadow-luxe-lg {
   box-shadow:
-    0 2px 4px rgb(40 32 24 / 0.05),
-    0 30px 60px -30px rgb(40 32 24 / 0.35);
+    0 2px 4px rgb(0 0 0 / 0.5),
+    0 30px 60px -30px rgb(0 0 0 / 0.85);
 }
 
 @utility lift {
@@ -186,8 +179,8 @@
 .lift:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 4px 8px rgb(40 32 24 / 0.06),
-    0 40px 80px -30px rgb(40 32 24 / 0.35);
+    0 4px 8px rgb(0 0 0 / 0.5),
+    0 40px 80px -30px rgb(0 0 0 / 0.9);
 }
 
 @utility gradient-text-bronze {
