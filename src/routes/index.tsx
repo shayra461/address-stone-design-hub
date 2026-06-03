@@ -588,7 +588,7 @@ function Configurator() {
   );
 
   return (
-    <section id="configurator" className="py-24 lg:py-32">
+    <section id="configurator" className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHead
           center
