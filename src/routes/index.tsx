@@ -273,6 +273,8 @@ function Hero() {
                 font="serif"
                 border="classic"
                 profile="face"
+                color="limestone"
+                size="medium"
               />
             </div>
 
