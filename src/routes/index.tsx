@@ -101,35 +101,31 @@ function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-stone-200/70"
-          : "bg-transparent"
+          ? "bg-background/75 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-15px_rgba(0,0,0,0.6)]"
+          : "bg-gradient-to-b from-black/60 to-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#" className="flex items-center gap-3">
-          <img
-            src={logoAsset.url}
-            alt="Address Stone Direct"
-            className="h-11 w-auto object-contain"
-          />
-          <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-serif text-lg tracking-tight text-stone-900">
-              Address Stone Direct
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Custom Cast Stone · USA
-            </span>
-          </span>
+        <a href="#" className="group flex items-center gap-3">
+          <div className="relative">
+            <div className="absolute -inset-2 -z-10 rounded-full bg-white/5 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+            <img
+              src={logoAsset.url}
+              alt="Address Stone Direct"
+              className="h-14 w-auto object-contain drop-shadow-[0_4px_18px_rgba(220,225,235,0.25)] transition-transform duration-500 group-hover:scale-105 lg:h-16"
+            />
+          </div>
         </a>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
           {nav.map((n) => (
             <a
               key={n.label}
               href={n.href}
-              className="text-sm font-medium text-stone-700 transition-colors hover:text-accent"
+              className="group relative text-sm font-medium uppercase tracking-[0.18em] text-stone-700 transition-colors hover:text-foreground"
             >
               {n.label}
+              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-500 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -137,30 +133,31 @@ function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="#configurator"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-luxe transition-all hover:bg-stone-700 hover:shadow-luxe-lg"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/95 px-6 py-3 text-sm font-medium uppercase tracking-wider text-primary-foreground shadow-luxe transition-all hover:bg-white hover:shadow-luxe-lg"
           >
-            Start Designing <ArrowRight className="h-4 w-4" />
+            Start Designing
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
 
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen(!open)}
-          className="rounded-full border border-stone-200 bg-background p-2 lg:hidden"
+          className="rounded-full border border-white/15 bg-white/5 p-2.5 backdrop-blur lg:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-stone-200 bg-background/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-white/10 bg-background/95 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {nav.map((n) => (
               <a
                 key={n.label}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-sm font-medium text-stone-700 hover:bg-stone-100"
+                className="rounded-lg px-3 py-3.5 text-base font-medium uppercase tracking-[0.18em] text-stone-700 hover:bg-white/5"
               >
                 {n.label}
               </a>
@@ -168,7 +165,7 @@ function Header() {
             <a
               href="#configurator"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-white py-3.5 text-sm font-medium uppercase tracking-wider text-primary-foreground"
             >
               Start Designing <ArrowRight className="h-4 w-4" />
             </a>
