@@ -561,7 +561,7 @@ function Collections() {
                   height={1500}
                   className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-2xl text-stone-900">{it.title}</h3>
@@ -869,12 +869,12 @@ function Visualization() {
                   </div>
                 </div>
               </div>
-              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute right-4 top-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
                 <div className="flex items-center gap-2">
                   <Move className="h-3.5 w-3.5" /> Reposition · Resize · Rotate
                 </div>
               </div>
-              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-stone-100 backdrop-blur">
+              <div className="absolute bottom-4 left-4 rounded-lg border border-white/20 bg-black/60 px-3 py-2 text-xs text-white backdrop-blur">
                 Scale 78% · Tilt −2°
               </div>
             </div>
@@ -1005,7 +1005,7 @@ function Gallery() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-stone-900/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute bottom-4 left-4 translate-y-3 text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-bronze-soft">View larger</div>
                 <div className="font-serif text-lg">A custom ASD installation</div>
@@ -1145,7 +1145,7 @@ function FinalCTA() {
     <section className="relative overflow-hidden py-24 lg:py-32">
       <div className="absolute inset-0 -z-10">
         <img src={heroHome} alt="" className="h-full w-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-stone-900/85" />
+        <div className="absolute inset-0 bg-black/85" />
       </div>
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-bronze-soft">
