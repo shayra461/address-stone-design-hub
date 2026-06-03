@@ -17,10 +17,13 @@ import {
   Package,
   Quote,
   ShieldCheck,
+  ShoppingBag,
   Sparkles,
   Star,
   Truck,
+  User,
   X,
+
 } from "lucide-react";
 
 import logoAsset from "@/assets/asd-logo.png.asset.json";
@@ -87,11 +90,12 @@ function Header() {
   }, []);
 
   const nav = [
-    { label: "Collections", href: "#collections" },
-    { label: "Configurator", href: "#configurator" },
-    { label: "Visualize", href: "#visualize" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Process", href: "#process" },
+    { label: "Collections" },
+    { label: "About" },
+    { label: "Configurator" },
+    { label: "Visualize" },
+    { label: "Gallery" },
+    { label: "Process" },
   ];
 
   return (
@@ -103,7 +107,7 @@ function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#" className="group flex items-center gap-3">
+        <div className="group flex items-center gap-3">
           <div className="relative">
             <div className="absolute -inset-2 -z-10 rounded-full bg-white/5 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
             <img
@@ -112,30 +116,38 @@ function Header() {
               className="h-14 w-auto object-contain drop-shadow-[0_4px_18px_rgba(220,225,235,0.25)] transition-transform duration-500 group-hover:scale-105 lg:h-16"
             />
           </div>
-        </a>
+        </div>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {nav.map((n) => (
-            <a
+            <span
               key={n.label}
-              href={n.href}
-              className="group relative text-sm font-medium uppercase tracking-[0.18em] text-stone-700 transition-colors hover:text-foreground"
+              className="group relative cursor-default text-sm font-medium uppercase tracking-[0.18em] text-stone-700 transition-colors hover:text-foreground"
             >
               {n.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-500 group-hover:w-full" />
-            </a>
+            </span>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="#configurator"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/95 px-6 py-3 text-sm font-medium uppercase tracking-wider text-primary-foreground shadow-luxe transition-all hover:bg-white hover:shadow-luxe-lg"
+        <div className="hidden items-center gap-2 lg:flex">
+          <span
+            aria-label="Account"
+            className="inline-flex h-10 w-10 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300 transition-colors hover:border-white/30 hover:text-foreground"
           >
-            Start Designing
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+            <User className="h-4.5 w-4.5" />
+          </span>
+          <span
+            aria-label="Cart"
+            className="relative inline-flex h-10 w-10 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300 transition-colors hover:border-white/30 hover:text-foreground"
+          >
+            <ShoppingBag className="h-4.5 w-4.5" />
+            <span className="absolute -right-0.5 -top-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-accent-foreground">
+              0
+            </span>
+          </span>
         </div>
+
 
         <button
           aria-label="Toggle menu"
@@ -150,22 +162,25 @@ function Header() {
         <div className="border-t border-white/10 bg-background/95 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {nav.map((n) => (
-              <a
+              <span
                 key={n.label}
-                href={n.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3.5 text-base font-medium uppercase tracking-[0.18em] text-stone-700 hover:bg-white/5"
+                className="cursor-default rounded-lg px-3 py-3.5 text-base font-medium uppercase tracking-[0.18em] text-stone-700 hover:bg-white/5"
               >
                 {n.label}
-              </a>
+              </span>
             ))}
-            <a
-              href="#configurator"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-white py-3.5 text-sm font-medium uppercase tracking-wider text-primary-foreground"
-            >
-              Start Designing <ArrowRight className="h-4 w-4" />
-            </a>
+            <div className="mt-3 flex items-center justify-center gap-3">
+              <span className="inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300">
+                <User className="h-5 w-5" />
+              </span>
+              <span className="relative inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300">
+                <ShoppingBag className="h-5 w-5" />
+                <span className="absolute -right-0.5 -top-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-accent-foreground">
+                  0
+                </span>
+              </span>
+            </div>
+
           </div>
         </div>
       )}
