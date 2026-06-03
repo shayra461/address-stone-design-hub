@@ -14,6 +14,8 @@ export interface StoneDesign {
   profile: ProfileKey;
   color: ColorKey;
   size: SizeKey;
+  numberScale: number;
+  streetScale: number;
 }
 
 export const COLOR_META: Record<ColorKey, { label: string; swatch: string; tint: string }> = {
