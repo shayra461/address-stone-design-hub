@@ -162,22 +162,25 @@ function Header() {
         <div className="border-t border-white/10 bg-background/95 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {nav.map((n) => (
-              <a
+              <span
                 key={n.label}
-                href={n.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3.5 text-base font-medium uppercase tracking-[0.18em] text-stone-700 hover:bg-white/5"
+                className="cursor-default rounded-lg px-3 py-3.5 text-base font-medium uppercase tracking-[0.18em] text-stone-700 hover:bg-white/5"
               >
                 {n.label}
-              </a>
+              </span>
             ))}
-            <a
-              href="#configurator"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-white py-3.5 text-sm font-medium uppercase tracking-wider text-primary-foreground"
-            >
-              Start Designing <ArrowRight className="h-4 w-4" />
-            </a>
+            <div className="mt-3 flex items-center justify-center gap-3">
+              <span className="inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300">
+                <User className="h-5 w-5" />
+              </span>
+              <span className="relative inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-white/15 bg-white/5 text-stone-300">
+                <ShoppingBag className="h-5 w-5" />
+                <span className="absolute -right-0.5 -top-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-accent-foreground">
+                  0
+                </span>
+              </span>
+            </div>
+
           </div>
         </div>
       )}
