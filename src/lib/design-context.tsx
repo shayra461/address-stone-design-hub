@@ -48,6 +48,8 @@ export function DesignProvider({ children }: { children: ReactNode }) {
     profile: "face",
     color: "limestone",
     size: "medium",
+    numberScale: 1,
+    streetScale: 1,
   });
   const update: Ctx["update"] = (k, v) => setDesign((d) => ({ ...d, [k]: v }));
   return <DesignCtx.Provider value={{ design, setDesign, update }}>{children}</DesignCtx.Provider>;
